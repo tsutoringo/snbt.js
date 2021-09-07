@@ -316,18 +316,19 @@ export default class SNBT {
 		}
 
 		const object = (_value) => {
-			const firstKey = Object.keys(_value)[0];
-
 			result += '{';
+			let firstFlag = true;
 			indent(1);
 
 			for (let key in _value) {
-				if (Object.hasOwnProperty.call(_value, key)) {
-					if (firstKey !== key) {
+				if (Object.hasOwnProperty.call(_value, key) && _value[key] !== undefined) {
+					if (!firstFlag) {
 						result += ','
 						indent();
-					};
-
+					} else {
+						firstFlag = false;
+					}
+					
 					result += `${key}:`;
 					value(_value[key]);
 				}
