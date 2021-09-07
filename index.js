@@ -321,7 +321,7 @@ export default class SNBT {
 			indent(1);
 
 			for (let key in _value) {
-				if (Object.hasOwnProperty.call(_value, key) && _value[key] !== undefined) {
+				if (Object.hasOwnProperty.call(_value, key) && _value[key] != undefined) {
 					if (!firstFlag) {
 						result += ','
 						indent();
