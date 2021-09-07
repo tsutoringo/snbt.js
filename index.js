@@ -360,7 +360,7 @@ export default class SNBT {
 				case 'object':
 					if (_value instanceof Structures.TypedArray) {
 						array(_value);
-					} else if (_value instanceof Structures.default) {
+					} else if (_value instanceof Structures.BigNumber) {
 						number(_value);
 					} else if (_value instanceof Array) {
 						array(_value);
@@ -378,3 +378,4 @@ export default class SNBT {
 		return result;
 	}
 }
+
