@@ -25,7 +25,6 @@ export default class SNBT {
 		return new (SNBT.getTypedNumberBySuffix(suffix, float))(value);
 	}
 
-
 	static isTypedNumberSuffix (suffix) {
 		if (suffix === '' || suffix == null) return false;
 
@@ -301,8 +300,7 @@ export default class SNBT {
 
 			if (_value instanceof Structures.TypedArray) result += `${_value.baseObject.type};`;
 
-			deep += 1;
-			indent();
+			indent(1);
 
 			for (let i = 0; i < _value.length; i += 1) {
 				if (i > 0) {
@@ -312,8 +310,7 @@ export default class SNBT {
 				value(_value[i]);
 			}
 
-			deep -= 1;
-			indent();
+			indent(-1);
 
 			result += ']';
 		}
@@ -322,8 +319,7 @@ export default class SNBT {
 			const firstKey = Object.keys(_value)[0];
 
 			result += '{';
-			deep += 1;
-			indent();
+			indent(1);
 
 			for (let key in _value) {
 				if (Object.hasOwnProperty.call(_value, key)) {
@@ -337,13 +333,13 @@ export default class SNBT {
 				}
 			}
 
-			deep -= 1;
-			indent();
+			indent(-1);
 
 			result += '}';
 		}
 
-		const indent = () => {
+		const indent = (n) => {
+			if (n) deep += n;
 			if (option.indent) {
 				result += `\n${option.indent.repeat(deep)}`;
 			}
