@@ -273,7 +273,8 @@ export default class SNBT {
 
 	static stringify(snbt, option) {
 		option = Object.assign({
-			indent: null
+			indent: null,
+			useByteFlag: false
 		}, option);
 		let result = '';
 		let deep = 0;
@@ -339,6 +340,14 @@ export default class SNBT {
 			result += '}';
 		}
 
+		const boolean = (_value) => {
+			if (option.useByteFlag) {
+				result += _value ? '1b' : '0b';
+			} else {
+				result += _value ? 'true' : 'false'
+			}
+		};
+
 		const indent = (n) => {
 			if (n) deep += n;
 			if (option.indent) {
@@ -364,6 +373,9 @@ export default class SNBT {
 					} else if (_value instanceof Object) {
 						object(_value);
 					}
+					break;
+				case 'boolean':
+					boolean(_value);
 					break;
 				default:
 					throw new Error(`Unknown type ${typeof _value}`);
