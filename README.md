@@ -35,4 +35,4 @@ console.log(snbt);
 ```
 
 ## 参考
-(Sifue Blog)[https://sifue.hatenablog.com/entry/20120218/1329588477]
+[Sifue Blog](https://sifue.hatenablog.com/entry/20120218/1329588477)
