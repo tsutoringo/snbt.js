@@ -1,5 +1,5 @@
 # snbt.js
-(Minecraft Wiki - SNBT)[https://minecraft.fandom.com/wiki/NBT_format#SNBT_format]
+[Minecraft Wiki - SNBT](https://minecraft.fandom.com/wiki/NBT_format#SNBT_format)
 
 ## Example
 ### Parse
