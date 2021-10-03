@@ -18,7 +18,7 @@ snbt = SNBT.parse(snbt);
 console.log(snbt);
 ```
 
-### stringify
+### Stringify
 ```JavaScript
 import SNBT from './index.js';
 
