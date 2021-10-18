@@ -358,7 +358,7 @@ export default class SNBT {
 		const value = _value => {
 			switch (typeof _value) {
 				case 'number':
-				umber(_value);
+					number(_value);
 					break;
 				case 'string':
 					string(_value);
